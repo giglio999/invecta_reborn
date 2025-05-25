@@ -3,15 +3,16 @@
 
 This repository contains the frontend layer of the **Invecta** system, developed as part of the Capstone Project for the Computer Engineering course at Universidade de Sorocaba (UNISO). The application aims to provide a web solution for inventory control, sales, purchases, and management of customers, products, and users, specifically targeting small and medium-sized businesses.
 
-## 👨‍💻 Frontend Developer
+## 👨‍💻 Full-Stack Developer
 
-**Gabriel Ramalho Resende**  
-Responsible for the entire Angular 16 frontend structure, including:
-- Component-based architecture and layout reuse
-- Login and registration pages
-- Integration with simulated HTTP services
-- Setup for backend integration (Spring Boot + JWT)
-- Best practices in folder structure, responsiveness, and Angular directives usage
+**Filipe Giglio**  
+Responsible for the entire Full Stack development, including:
+- Frontend development using Angular 16 with component-based architecture and layout reuse
+- Development of login and registration pages with full integration to the backend
+- Backend implementation using Spring Boot with JWT authentication and RESTful APIs
+- Database configuration and management, including schema creation and connection setup
+- Integration between frontend and backend with secure HTTP communication
+- Application of best practices in folder structure, responsiveness, code modularity, and efficient use of Angular directives
 
 ---
 
