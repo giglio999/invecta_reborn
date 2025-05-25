@@ -103,6 +103,5 @@ The login and registration methods are ready to connect with the following API:
 
 ## 📫 Contact
 
-Filipe Giglio 🐲
-LinkedIn: [linkedin.com/in/giglio999](https://www.linkedin.com/in/giglio999/) 
-
+Filipe Giglio 🐲   
+LinkedIn: [linkedin.com/in/giglio999](https://www.linkedin.com/in/giglio999/)
