@@ -1,0 +1,15 @@
+<app-default-login-layout
+  title="Registro"
+  primaryBtnText="Registrar"
+  secundaryOptionText="Login"
+  [showUsername]="true"
+  [username]="user.username"
+  [email]="user.email"
+  [password]="user.password"
+  (usernameChange)="user.username = $event"
+  (emailChange)="user.email = $event"
+  (passwordChange)="user.password = $event"
+  (onPrimaryClick)="onRegister()"
+  (onSecondaryClick)="goToLogin()"
+>
+</app-default-login-layout>

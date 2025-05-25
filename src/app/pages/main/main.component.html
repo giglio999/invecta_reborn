@@ -1,0 +1,79 @@
+<app-default-main-layout>
+
+  <!-- 🔥 Mensagem de erro -->
+  <div *ngIf="errorLoading" class="error-message">
+    <p>❌ Não foi possível carregar os produtos. Verifique se o backend está online.</p>
+  </div>
+
+  <!-- 🔥 Botão de adicionar -->
+  <button (click)="showForm = !showForm" class="add-button">
+    {{ showForm ? 'Fechar formulário' : '➕ Adicionar Produto' }}
+  </button>
+
+  <!-- 🔥 Formulário de adicionar produto -->
+  <div *ngIf="showForm" class="product-form">
+    <h3>Adicionar Novo Produto</h3>
+
+    <input type="text" placeholder="Nome" [(ngModel)]="newProduct.name">
+    <input type="number" placeholder="Preço" [(ngModel)]="newProduct.unitPrice">
+    <input type="number" placeholder="Quantidade" [(ngModel)]="newProduct.quantity">
+    <input type="text" placeholder="Descrição" [(ngModel)]="newProduct.description">
+
+    <button (click)="addProduct()">Salvar Produto</button>
+  </div>
+
+  <!-- 🔥 Container de produtos -->
+  <div class="product-container">
+
+    <!-- Nenhum produto -->
+    <div *ngIf="products.length === 0 && !errorLoading" class="empty-message">
+      <p>⚠️ Nenhum produto encontrado no banco de dados.</p>
+    </div>
+
+    <!-- 🔥 Lista dos produtos -->
+    <div *ngFor="let product of products" class="product-card">
+
+      <!-- 🔧 Modo edição -->
+      <div *ngIf="editingProductId === product.id; else viewMode">
+        <input type="text" [(ngModel)]="editProductData.name" placeholder="Nome">
+        <input type="number" [(ngModel)]="editProductData.unitPrice" placeholder="Preço">
+        <input type="number" [(ngModel)]="editProductData.quantity" placeholder="Quantidade">
+        <input type="text" [(ngModel)]="editProductData.description" placeholder="Descrição">
+
+        <div class="actions">
+          <button (click)="saveEdit()" class="save">Salvar</button>
+          <button (click)="cancelEdit()" class="cancel">Cancelar</button>
+        </div>
+      </div>
+
+      <!-- 👁️ Modo visual -->
+      <ng-template #viewMode>
+        <h2>{{ product.name }}</h2>
+        <p><strong>Preço:</strong> R$ {{ product.unitPrice | number:'1.2-2' }}</p>
+        <p><strong>Quantidade:</strong> {{ product.quantity }}</p>
+        <p><strong>Descrição:</strong> {{ product.description || 'Sem descrição' }}</p>
+
+        <div class="actions">
+          <button (click)="startEdit(product)" class="edit">Editar</button>
+          <button (click)="onDelete(product.id)" class="delete">Remover</button>
+        </div>
+      </ng-template>
+
+    </div>
+
+    <!-- 🔥 Card exemplo se backend estiver fora -->
+    <div *ngIf="errorLoading" class="product-card">
+      <h2>Produto Exemplo</h2>
+      <p><strong>Preço:</strong> R$ 0,00</p>
+      <p><strong>Quantidade:</strong> 0</p>
+      <p><strong>Descrição:</strong> Backend offline — Dados não carregados.</p>
+
+      <div class="actions">
+        <button class="edit">Editar</button>
+        <button class="delete">Remover</button>
+      </div>
+    </div>
+
+  </div>
+
+</app-default-main-layout>

@@ -1,0 +1,40 @@
+<main>
+  <section class="form-section">
+    <h1>invecta</h1>
+    <h2>{{ title }}</h2>
+
+    <input
+    *ngIf="showUsername"
+    type="text"
+    placeholder="Nome de usuário"
+    [value]="username"
+    (input)="handleUsernameInput($event)"
+    />
+
+    <input
+    type="email"
+    placeholder="Email"
+    [value]="email"
+    (input)="handleEmailInput($event)"
+    />
+
+    <input
+    type="password"
+    placeholder="Senha"
+    [value]="password"
+    (input)="handlePasswordInput($event)"
+    />
+
+
+    <div class="options">
+      <h3>Esqueci a senha</h3>
+      <h4 (click)="onSecondaryClick.emit()">{{ secundaryOptionText }}</h4>
+    </div>
+
+    <button (click)="onPrimaryClick.emit()">{{ primaryBtnText }}</button>
+  </section>
+
+  <section class="logo-section">
+    <img src="../../../assets/svg/Final_Logo.svg" alt="invecta logo" />
+  </section>
+</main>
